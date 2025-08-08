@@ -1,0 +1,424 @@
+/* General */
+@media (max-width: 1082px) {
+    .content__title {
+        font-weight: 700;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 506px) {
+    .content__title {
+        font-weight: 700;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding: 10px;
+    }
+
+    .up {
+        padding: 8px;
+    }
+
+}
+
+/*Header */
+@media (max-width: 1024px) {
+
+    .js-header-menu.is-open {
+        padding: 0 20px 20px 20px;
+    }
+
+    .header {
+        padding: 18px;
+    }
+
+    .logo {
+        margin-right: 50px;
+    }
+
+    .js-header-menu.is-open .header__menu-item {
+        display: block;
+    }
+
+    .header__menu-button {
+        display: block;
+        border: 2px solid #9171ff;
+        padding: 8px;
+        border-radius: 8px;
+        fill: #9171ff;
+        stroke: #9171ff;
+    }
+
+    .header__menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #054146;
+    }
+
+    .header__menu-list {
+        box-sizing: border-box;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.4s ease, padding 0.4s ease;
+        padding: 0 20px;
+        flex-direction: column;
+    }
+
+    .header__menu-item a {
+        color: #ffffff;
+    }
+
+    .header__menu-list.is-padding {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .header__auth {
+        margin-left: 0;
+    }
+
+}
+
+@media (max-width: 850px) {
+    .logo {
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .header__auth {
+        margin-left: 0;
+    }
+
+    .header__menu-item {
+        display: block;
+    }
+}
+
+@media (max-width: 680px) {
+    .header {
+        padding: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 18px;
+        gap: 14px;
+    }
+
+    .header__auth {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .header__lang img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .header__menu-button {
+        padding: 6px;
+    }
+
+    .header__menu-button svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 338px) {
+    .logo {
+        width: 130px;
+    }
+}
+
+/* Hero */
+@media (max-width: 1024px) {
+    .hero__content--compact {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero__content {
+        max-width: 400px;
+        padding: 50px 15px;
+    }
+
+    .hero__content--second {
+        padding: 60px 15px;
+    }
+
+    .hero__title {
+        font-weight: 700;
+        font-size: 26px;
+    }
+
+    .hero__text {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero__rating,
+    .title,
+    .content__subtitle {
+        margin-bottom: 5px;
+    }
+
+    .hero__content {
+        padding: 30px 10px;
+    }
+
+    .hero__content--second {
+        padding: 60px 15px;
+    }
+
+    .hero__title {
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+    .content__subtitle--second {
+        margin-bottom: 20px;
+    }
+
+    .hero__text {
+        max-width: 230px;
+    }
+
+    .button {
+        padding: 10px 25px;
+    }
+}
+
+/* Sidebar */
+@media (max-width: 1025px) {
+    .main {
+        margin: 0;
+        padding: 0 20px;
+    }
+
+    .sidebar {
+        border-radius: 8px;
+        height: auto;
+        margin: 20px auto 0;
+        width: calc(100% - 40px);
+        padding: 0;
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    .sidebar__top-buttons,
+    .sidebar__live,
+    .sidebar--right,
+    .sidebar__menu {
+        display: none;
+    }
+
+    .sidebar__links.is-open .sidebar__links-list {
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .main {
+        margin: 0;
+        padding: 0 10px;
+    }
+}
+
+/* bet-info */
+@media (max-width: 1350px) {
+    .bet-info__block-wrapper {
+        flex-direction: column;
+    }
+
+    .bet-info__block:first-child {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .info {
+        padding-bottom: 17px;
+    }
+}
+
+/* rating */
+@media (max-width: 768px) {
+    .rating-wrapper {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+/* footer */
+@media (min-width: 1245px) {
+    .footer__top {
+        width: 690px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer__container {
+        max-width: calc(100% - 506px);
+    }
+}
+
+@media (max-width: 490px) {
+    .footer__top {
+        flex-direction: column;
+    }
+
+    .footer__bottom-left {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero__button-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero__button--bonus {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+/* app */
+@media (max-width: 768px) {
+    .app-download__link {
+        gap: 5px;
+        padding: 6px 20px;
+        border-radius: 6px;
+    }
+
+    .app-download__links p {
+        font-size: 12px;
+    }
+
+    .app-download__links img {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* casino */
+@media (min-width: 480px) {
+    .casino__list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .casino__list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .casino__image-text {
+        font-size: 14px;
+        padding: 10px 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .casino__list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1240px) {
+    .casino__image-text {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 1110px) {
+    .casino__image-text {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .casino__image-text {
+        font-size: 14px;
+        padding: 20px 0;
+    }
+}
+
+/* live */
+@media (max-width: 1145px) {
+    .live__image-text {
+        font-size: 14px;
+    }
+
+    .live__button {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .live__image-text {
+        font-size: 16px;
+    }
+
+    .live__button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 768px) {
+    .live__list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .live__list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* registration */
+@media (min-width: 768px) {
+    .registration__wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .registration__form {
+        max-width: 50%;
+    }
+
+    .registration__image {
+        max-width: 40%;
+    }
+}
+
+/* Support */
+@media (max-width: 768px) {
+    .contact__wrapper {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .contact__image {
+        justify-content: center;
+    }
+}

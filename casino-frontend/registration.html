@@ -146,9 +146,7 @@
             </p>
         </article>
 
-        <!-- Tut -->
-
-        <article class="content">
+        <!-- <article class="content">
             <h2 class="content__title">20Bet Brasil: Casa de Aposta e Cassino</h2>
 
             <div class="registration__wrapper">
@@ -162,6 +160,29 @@
                     </label>
 
                     <a href="#" class="registration__button button">Obter um Bônus</a>
+                </form>
+
+                <div class="registration__image">
+                    <img src="img/chips.png" alt="Casino Chips">
+                </div>
+            </div>
+        </article> -->
+
+        <article class="content">
+            <h2 class="content__title">20Bet Brasil: Casa de Aposta e Cassino</h2>
+
+            <div class="registration__wrapper">
+                <form class="registration__form" id="registerForm">
+                    <input type="email" name="email" placeholder="lalala@gmail.com" class="registration__input"
+                        required>
+                    <input type="password" name="password" placeholder="Password" class="registration__input" required>
+
+                    <label class="registration__checkbox">
+                        <input type="checkbox" checked>
+                        <span>I agree to receive exclusive bonuses and promotions by email and SMS.</span>
+                    </label>
+
+                    <button type="submit" class="registration__button button">Obter um Bônus</button>
                 </form>
 
                 <div class="registration__image">
@@ -329,6 +350,7 @@
     <script src="./js/scroll-btn.js" defer></script>
     <script src="./js/observer.js" defer></script>
     <script src="./js/header-dropdown.js" defer></script>
+    <script src="./api/registration.js" defer></script>
 </body>
 
 </html>

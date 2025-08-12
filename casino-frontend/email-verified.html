@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Email Verified</title>
+</head>
+
+<body>
+    <h2>✅ Email confirmed! Logging you in...</h2>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const token = params.get('token');
+
+        if (token) {
+            localStorage.setItem('token', token);
+            window.location.href = '/profile.html';
+        } else {
+            alert('❌ No token found. Please log in manually.');
+            window.location.href = '/login.html';
+        }
+    </script>
+</body>
+
+</html>

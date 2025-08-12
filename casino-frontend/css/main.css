@@ -215,33 +215,6 @@ article ul>li:before {
     gap: 8px;
 }
 
-/* .header__button {
-    padding: 12px 32px;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 24px;
-    border-radius: 50px;
-    text-align: center;
-    white-space: nowrap;
-    transition: transform 0.3s ease;
-    text-transform: uppercase;
-    color: #ffffff;
-} */
-
-/* .header__button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.header__button--login {
-    background-color: #185A61;
-
-}
-
-.header__button--signup {
-    background-color: #2E9355;
-} */
-
 .header__lang {
     border-radius: 50px;
     margin-left: auto;
@@ -1483,4 +1456,28 @@ article ol>li::before {
 .contact__image img {
     max-width: 100%;
     height: auto;
+}
+
+/* User Profile */
+.profile {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 10px;
+}
+
+.profile__title {
+    text-align: center;
+}
+
+.profile__info {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.error {
+    color: red;
+    margin-top: 15px;
 }

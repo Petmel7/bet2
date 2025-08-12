@@ -1,19 +1,34 @@
+
 const jwt = require('jsonwebtoken');
+const User = require('../models/User');
 
-const protect = (req, res, next) => {
-    let token = req.headers.authorization?.split(' ')[1]; // Bearer token
+const protect = async (req, res, next) => {
+    let token;
 
-    if (!token) {
-        return res.status(401).json({ message: 'Немає токена, доступ заборонено' });
+    if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
+        try {
+            token = req.headers.authorization.split(' ')[1];
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            req.user = await User.findById(decoded.id).select('-password');
+            next();
+        } catch (error) {
+            res.status(401).json({ message: 'Not authorized, token failed' });
+        }
     }
 
-    try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = decoded; // { id, role }
-        next();
-    } catch (err) {
-        return res.status(401).json({ message: 'Невірний токен' });
+    if (!token) {
+        res.status(401).json({ message: 'Not authorized, no token' });
     }
 };
 
-module.exports = { protect };
+const authorize = (...roles) => {
+    return (req, res, next) => {
+        if (!roles.includes(req.user.role)) {
+            return res.status(403).json({ message: 'Access denied' });
+        }
+        next();
+    };
+};
+
+module.exports = { protect, authorize };
+

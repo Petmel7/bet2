@@ -1,4 +1,5 @@
-(async () => {
+
+document.addEventListener('DOMContentLoaded', async () => {
     try {
         // 1️⃣ Отримуємо токен з URL
         const urlParams = new URLSearchParams(window.location.search);
@@ -13,7 +14,7 @@
         // 2️⃣ Отримуємо токен з localStorage
         const token = localStorage.getItem('token');
 
-        // 3️⃣ Якщо токена немає — перекидаємо на реєстрацію
+        // 3️⃣ Якщо токена немає — перекидаємо на реєстрацію і зупиняємо код
         if (!token) {
             throw new Error('Please login first.');
         }
@@ -25,32 +26,32 @@
             }
         });
 
-        if (!res.ok) {
-            throw new Error('Unauthorized or server error');
-        }
+        if (!res.ok) throw new Error('Unauthorized or server error');
 
         const data = await res.json();
 
-        console.log("data", data);
-
         // 5️⃣ Заповнюємо дані в HTML
-        document.getElementById('email').textContent = data.email || '-';
-        document.getElementById('balance').textContent =
-            data.balance !== undefined && data.balance !== null ? data.balance : '-';
+        const emailEl = document.getElementById('email');
+        const balanceEl = document.getElementById('balance');
 
+        if (emailEl) emailEl.textContent = data.email || '-';
+        if (balanceEl) balanceEl.textContent = (data.balance ?? 0) + ' USD';
 
     } catch (err) {
-        // Якщо помилка авторизації — видаляємо токен і перекидаємо
         console.error(err);
         localStorage.removeItem('token');
-        document.getElementById('email').textContent = "-";
-        document.getElementById('balance').textContent =
-            data.balance !== undefined && data.balance !== null ? data.balance : '-';
-        document.getElementById('error').textContent = err.message;
+
+        const emailEl = document.getElementById('email');
+        const balanceEl = document.getElementById('balance');
+        const errorEl = document.getElementById('error');
+
+        if (emailEl) emailEl.textContent = "-";
+        if (balanceEl) balanceEl.textContent = "-";
+        if (errorEl) errorEl.textContent = err.message;
 
         if (err.message === 'Please login first.' || err.message.includes('Unauthorized')) {
             alert(err.message);
             window.location.href = '/registration.html';
         }
     }
-})();
+});

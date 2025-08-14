@@ -55,3 +55,41 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 });
+
+// 5️⃣ Обробка поповнення балансу
+document.getElementById('depositForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const amount = Number(document.getElementById('depositAmount').value);
+    const token = localStorage.getItem('token');
+
+    try {
+        const res = await fetch('http://localhost:5000/api/user/deposit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ amount })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+            document.getElementById('depositMessage').textContent = `❌ ${data.message}`;
+            return;
+        }
+
+        document.getElementById('depositMessage').textContent = '✅ Balance updated!';
+        document.getElementById('balance').textContent = data.balance;
+        document.getElementById('depositAmount').value = '';
+
+    } catch (err) {
+        document.getElementById('depositMessage').textContent = '❌ Server error';
+    }
+});
+
+document.getElementById('logoutBtn').addEventListener('click', () => {
+    localStorage.removeItem('token');
+    alert('You have been logged out.');
+    window.location.href = '/registration.html';
+});

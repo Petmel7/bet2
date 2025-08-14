@@ -2,19 +2,47 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+    <meta charset="utf-8">
+    <title>User Profile - Reliable Online Casino</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta property="og:site_name" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:image:alt" content="">
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/media.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <div id="header"></div>
+
     <article class="profile">
         <h1 class="profile__title">User Profile</h1>
         <div class="profile__info" id="profile">
             <p><strong>Email:</strong> <span id="email">Loading...</span></p>
             <p><strong>Balance:</strong> <span id="balance">Loading...</span></p>
         </div>
+
+        <h2>Deposit Balance</h2>
+        <form id="depositForm">
+            <input type="number" id="depositAmount" placeholder="Enter amount" min="1" required>
+            <button type="submit">Deposit</button>
+        </form>
+        <div id="depositMessage"></div>
+
+        <button id="logoutBtn">Logout</button>
+        <a href="index.html" class="back">Back home</a>
+
         <div id="error" class="error"></div>
     </article>
 

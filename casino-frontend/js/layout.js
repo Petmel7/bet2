@@ -11,7 +11,6 @@ async function loadLayout() {
         './js/menu-toggle.js',
         './js/header-dropdown.js',
         './js/observer.js',
-        './js/sidebar-toggle.js',
         './js/scroll-btn.js'
     ];
 

@@ -1463,6 +1463,8 @@ article ol>li::before {
     padding: 20px;
     background: #f4f4f4;
     border-radius: 10px;
+
+    margin-top: 100px;
 }
 
 .profile__title {
@@ -1478,4 +1480,8 @@ article ol>li::before {
 .error {
     color: red;
     margin-top: 15px;
+}
+
+.back {
+    background-color: #2E9355;
 }

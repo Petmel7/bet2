@@ -16,6 +16,7 @@ app.use(cors({
 }));
 
 app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/user', require('./routes/userRoutes'));
 app.use('/api/admin', require('./routes/adminRoutes'));
 
 if (process.env.NODE_ENV !== 'test') {

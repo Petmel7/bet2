@@ -1,11 +1,9 @@
-// const express = require('express');
-// const router = express.Router();
-// const { registerUser, loginUser, getProfile } = require('../controllers/userController');
-// const { protect } = require('../middleware/authMiddleware');
+const express = require('express');
+const router = express.Router();
+const { depositBalance } = require('../controllers/userController');
+const { protect } = require('../middleware/authMiddleware');
 
-// router.post('/register', registerUser);
-// router.post('/login', loginUser);
-// router.get('/profile', protect, getProfile);
+router.post('/deposit', protect, depositBalance);
 
-// module.exports = router;
+module.exports = router;
 

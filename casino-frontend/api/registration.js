@@ -1,3 +1,4 @@
+
 document.getElementById('registerForm').addEventListener('submit', async function (e) {
     e.preventDefault();
 
@@ -5,32 +6,55 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     const password = e.target.password.value.trim();
 
     try {
-        // 1. Реєстрація
-        const registerRes = await fetch('http://localhost:5000/api/auth/register', {
+        // 1️⃣ Пробуємо зареєструвати
+        let res = await fetch('http://localhost:5000/api/auth/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
         });
 
-        const registerData = await registerRes.json();
+        let data = await res.json();
 
-        if (!registerRes.ok) {
-            alert(`❌ Error: ${registerData.message || 'Registration failed'}`);
+        if (res.ok) {
+            // ✅ Реєстрація успішна
+            alert('✅ Registration successful! Please check your email to confirm.');
+
+            const domain = email.split('@')[1];
+            let mailUrl = '';
+            if (domain.includes('gmail.com')) mailUrl = 'https://mail.google.com';
+            else if (domain.includes('yahoo.com')) mailUrl = 'https://mail.yahoo.com';
+            else if (domain.includes('outlook.com') || domain.includes('hotmail.com')) mailUrl = 'https://outlook.live.com';
+            if (mailUrl) window.open(mailUrl, '_blank');
+
             return;
         }
 
-        alert('✅ Registration successful! Please check your email to confirm.');
+        // 2️⃣ Якщо користувач вже існує — пробуємо логін
+        if (data.message === 'User already exists') {
+            res = await fetch('http://localhost:5000/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
 
-        // 2. Відкриваємо поштовий сервіс у новій вкладці
-        const domain = email.split('@')[1];
-        let mailUrl = '';
-        if (domain.includes('gmail.com')) mailUrl = 'https://mail.google.com';
-        else if (domain.includes('yahoo.com')) mailUrl = 'https://mail.yahoo.com';
-        else if (domain.includes('outlook.com') || domain.includes('hotmail.com')) mailUrl = 'https://outlook.live.com';
-        if (mailUrl) window.open(mailUrl, '_blank');
+            data = await res.json();
+
+            if (!res.ok) {
+                alert(`❌ Error: ${data.message || 'Login failed'}`);
+                return;
+            }
+
+            localStorage.setItem('token', data.token);
+            window.location.href = '/profile.html';
+            return;
+        }
+
+        // 3️⃣ Інші помилки
+        alert(`❌ Error: ${data.message || 'Registration failed'}`);
 
     } catch (err) {
         console.error('Error:', err);
         alert('❌ Server error. Please try again later.');
     }
-}); 
+});
+

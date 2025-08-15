@@ -1469,6 +1469,7 @@ article ol>li::before {
 
 .profile__title {
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .profile__info {
@@ -1482,6 +1483,11 @@ article ol>li::before {
     margin-top: 15px;
 }
 
-.back {
-    background-color: #2E9355;
+/* deposit */
+.deposit__title {
+    margin-bottom: 5px;
+}
+
+.deposit__form {
+    margin-bottom: 15px;
 }
